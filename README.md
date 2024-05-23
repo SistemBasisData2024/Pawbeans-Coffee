@@ -17,6 +17,6 @@ At the end of each month, the top 50 users on the leaderboard receive special vo
 
 ## Authors
 #### Sistem Basis Data 2024 - Kelompok 12
-- [Kania Aidilla Firka](https://www.github.com/octokatherine)
+- [Kania Aidilla Firka](https://github.com/kaniafirka)
 - [Hafizyah Rayhan Zulikhram](https://github.com/HafizyahRayhan)
 - [Aisyah Arifatul Alya](https://github.com/arifatalya)
