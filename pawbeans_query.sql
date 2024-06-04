@@ -19,6 +19,11 @@ CREATE TYPE serving_type AS ENUM (
     'cold'
 );
 
+CREATE TYPE order_status AS ENUM (
+    'Paid',
+    'Waiting for Payment'
+);
+
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
@@ -54,7 +59,17 @@ CREATE TABLE personalized_coffee_ratings (
     UNIQUE (user_id, personalized_coffee_id)
 );
 
-
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(user_id),
+    items VARCHAR(255) NOT NULL,
+    amount INTEGER NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    status order_status NOT NULL,
+    date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    payment BOOLEAN NOT NULL,
+    UNIQUE (user_id, order_id)
+);
 
 INSERT INTO coffees (name, price) VALUES
 ('Espresso', 2.50),
