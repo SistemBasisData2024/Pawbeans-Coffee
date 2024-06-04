@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+@keyframes moveUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.signup-bg {
+    background-image: url('/login_bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.signup-container {
+    max-width: 28rem;
+    min-width: 28rem;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: moveUp 0.5s ease-in-out;
+}
+
+.header {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #6f4e37;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input {
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.button {
+    background-color: #6f4e37;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+}
+
+.button:hover {
+    background-color: #5a3b25;
+}
+
+.error {
+    color: red;
+    margin-bottom: 1rem;
+}
+
+.success {
+    color: green;
+    margin-bottom: 1rem;
+}
+
+.footer {
+    margin-top: 1rem;
+    color: #6f4e37;
+}
+
+.link {
+    color: #6f4e37;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}

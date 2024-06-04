@@ -1,0 +1,13 @@
+.coffee-card, .personalized-coffee-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.coffee-list, .personalized-coffee-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

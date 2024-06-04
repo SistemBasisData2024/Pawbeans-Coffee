@@ -1,0 +1,179 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #6f4e37;
+    display: flex;
+    align-items: center;
+    z-index: 1000; 
+}
+
+.logo {
+    margin-left: 1rem;
+}
+
+.brand {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9eac8;
+    height: calc(100vh - 60px); 
+    width: 270px;
+    position: fixed;
+    top: 60px;
+    box-sizing: border-box;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #6f4e37;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.username {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    word-break: break-word;
+}
+
+.toggle-anonymous {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.toggle-anonymous label {
+    margin-right: 10px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    margin-left: 270px; 
+}
+
+.main-content {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.welcome-section {
+    margin-top: 60px; 
+    margin-bottom: 20px; 
+}
+
+.welcome-section h1 {
+    font-size: 2.5rem; 
+    font-family: 'Georgia', serif; 
+    color: #6f4e37;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.coffee-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+}
+
+.add-customization-button {
+    padding: 8px 16px; 
+    background-color: #6f4e37;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.view-other-coffees-button{
+    padding: 8px 16px; 
+    background-color: #6f4e37;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.add-customization-button:hover {
+    background-color: #56382b;
+}
+.view-other-coffees-button:hover {
+    background-color: #56382b;
+}
+
+.customize-section {
+    margin-top: 40px; 
+}
+
+.customize-section h2 {
+    font-size: 2.5rem; 
+    font-family: 'Georgia', serif; 
+    color: #6f4e37;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.coffee-card {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #ededed;
+    padding: 20px;
+    margin: 16px 0;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 250px; /* Set the width */
+    height: 350px; /* Set the height */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.coffee-card img.coffee-image {
+    max-width: 100%;
+    width: 150px; /* Set the width of the image */
+    max-height: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border: 2px solid #555;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

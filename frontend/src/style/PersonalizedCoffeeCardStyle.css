@@ -1,0 +1,55 @@
+.personalized-coffee-card {
+    width: 100%; 
+    max-width: 1175px; 
+    display: flex;
+    position: relative;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #fff;
+}
+
+.coffee-image {
+    width: 150px;
+    height: 150px; 
+    margin-right: 20px;
+    align-self: center; 
+}
+
+
+
+.coffee-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.coffee-details p {
+    margin: 5px 0;
+}
+
+.star {
+    color: #FFD700; 
+    font-size: 20px;
+}
+
+.star.empty {
+    color: #ccc; 
+}
+
+.delete-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #ff4d4d; 
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.delete-button:hover {
+    background-color: #ff1a1a; 
+}
