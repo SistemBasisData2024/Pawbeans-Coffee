@@ -46,7 +46,6 @@ const Home = () => {
             }
         };
     
-    
         fetchCoffees();
         fetchPersonalizedCoffees();
     }, [user]);

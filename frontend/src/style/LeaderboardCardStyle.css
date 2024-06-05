@@ -1,0 +1,73 @@
+.card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 50px; 
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    color: #4b2e2e; 
+    height: 80px;
+}
+
+.card.rank-gold {
+    background-color: #ffd700;
+}
+
+.card.rank-silver {
+    background-color: #c0c0c0;
+}
+
+.card.rank-bronze {
+    background-color: #cd7f32;
+}
+
+.rank-number {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: 20px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #4b2e2e; 
+    color: #fff;
+}
+
+.card-content {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+}
+
+.description, .username {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: left; 
+    margin: 0; 
+}
+
+.rating {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    align-self: center;
+}
+
+.leaderboard-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}

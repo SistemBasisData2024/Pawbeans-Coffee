@@ -32,7 +32,12 @@ const addPersonalizedCoffee = async (req, res) => {
 // Get all personalized coffees
 const getPersonalizedAll = async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM personalized_coffees');
+        const result = await pool.query(`
+            SELECT pc.*, u.username, u.is_anonymous
+            FROM personalized_coffees pc
+            JOIN users u ON pc.user_id = u.user_id
+            ORDER BY pc.rating DESC
+        `);
         res.json(result.rows);
     } catch (err) {
         console.error(err.message);
