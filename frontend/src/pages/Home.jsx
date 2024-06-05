@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import CoffeeCard from '../components/CoffeeCard';
 import PersonalizedCoffeeCard from '../components/PersonalizedCoffeeCard';
 import CustomizeCoffeeModal from '../components/CustomizeCoffeeModal';
@@ -134,10 +135,10 @@ const Home = () => {
     return (
         <div className="container">
             <Navbar />
-            <Sidebar 
-                username={user?.username} 
-                isAnonymous={user?.is_anonymous ?? false} 
-                onToggleAnonymous={toggleAnonymous} 
+            <Sidebar
+                username={user?.username}
+                isAnonymous={user?.is_anonymous ?? false}
+                onToggleAnonymous={toggleAnonymous}
             />
             <div className="content">
                 <div className="main-content">
@@ -177,6 +178,7 @@ const Home = () => {
                 onClose={() => setIsModalOpen(false)} 
                 onAddCoffee={handleAddCoffee} 
             />
+            <Footer />
         </div>
     );
 };

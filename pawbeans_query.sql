@@ -71,6 +71,14 @@ CREATE TABLE orders (
     UNIQUE (user_id, order_id)
 );
 
+CREATE TABLE cart_items (
+    cart_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(user_id),
+    item_id INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
 INSERT INTO coffees (name, price) VALUES
 ('Espresso', 2.50),
 ('Latte', 3.50),

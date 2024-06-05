@@ -55,7 +55,7 @@ const Login = () => {
                 >
                     Login
                 </button>
-                <p className="footer">
+                <p className="login-footer">
                     Don't have an account? <a href="/signup" className="link">Signup</a>
                 </p>
             </div>

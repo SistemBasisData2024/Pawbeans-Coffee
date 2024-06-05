@@ -52,7 +52,7 @@ const Signup = () => {
                 >
                     Signup
                 </button>
-                <p className="footer">
+                <p className="signup-footer">
                     Already have an account? <a href="/login" className="link">Login</a>
                 </p>
             </div>
