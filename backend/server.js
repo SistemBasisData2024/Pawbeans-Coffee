@@ -11,7 +11,7 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 app.use('/users', userRoutes);
-app.use('/coffee', coffeeRoutes);
+app.use('/api', coffeeRoutes);
 app.use('/cart', cartRoutes);
 app.use('/myOrder', myOrderRoutes);
 

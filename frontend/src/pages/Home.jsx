@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import CoffeeCard from '../components/CoffeeCard';
 import PersonalizedCoffeeCard from '../components/PersonalizedCoffeeCard';
 import CustomizeCoffeeModal from '../components/CustomizeCoffeeModal';
@@ -35,7 +34,7 @@ const Home = () => {
                 console.error('Error fetching coffees:', error);
             }
         };
-    
+
         const fetchPersonalizedCoffees = async () => {
             if (!user) return;
             try {
@@ -46,8 +45,7 @@ const Home = () => {
                 console.error('Error fetching personalized coffees:', error);
             }
         };
-    
-    
+
         fetchCoffees();
         fetchPersonalizedCoffees();
     }, [user]);
@@ -80,6 +78,9 @@ const Home = () => {
             case 2: return '/latte.jpg';
             case 3: return '/cappuccino.jpg';
             case 4: return '/machiato.jpg';
+            case 5: return '/assets_americano.png';
+            case 6: return '/assets_frappuccino.png';
+            case 7: return '/assets_affogato.png';
             default: return '/default-coffee.jpg';
         }
     };
@@ -94,7 +95,7 @@ const Home = () => {
                 body: JSON.stringify({
                     userId: user.user_id,
                     rating: coffeeDetails.rating,
-                    description: coffeeDetails.description, 
+                    description: coffeeDetails.description,
                     beanType: coffeeDetails.beanType,
                     topping: coffeeDetails.toppings,
                     size: coffeeDetails.size,
@@ -103,7 +104,7 @@ const Home = () => {
             });
             if (response.ok) {
                 const newCoffee = await response.json();
-                setPersonalizedCoffees(prevCoffees => [...prevCoffees, newCoffee]); 
+                setPersonalizedCoffees(prevCoffees => [...prevCoffees, newCoffee]);
                 setIsModalOpen(false);
             } else {
                 console.error('Failed to add personalized coffee');
@@ -156,8 +157,8 @@ const Home = () => {
                     <div className="customize-section">
                         <h2>Customize your own coffee</h2>
                         <p>Create your own special menu and share it with others !!!</p>
-                        <button 
-                            className="add-customization-button" 
+                        <button
+                            className="add-customization-button"
                             onClick={() => setIsModalOpen(true)}
                         >
                             Add Customization
@@ -172,13 +173,12 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <CustomizeCoffeeModal 
-                userId={user?.user_id} 
-                isOpen={isModalOpen} 
-                onClose={() => setIsModalOpen(false)} 
-                onAddCoffee={handleAddCoffee} 
+            <CustomizeCoffeeModal
+                userId={user?.user_id}
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                onAddCoffee={handleAddCoffee}
             />
-            <Footer />
         </div>
     );
 };

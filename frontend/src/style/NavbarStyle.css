@@ -7,6 +7,7 @@
     background-color: #6f4e37;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     z-index: 1000;
 }
 
@@ -17,9 +18,9 @@
 }
 
 .logo-image {
-    width: 48px;  
-    height: 52px; 
-    margin-right: 0.5rem;  
+    width: 48px;
+    height: 52px;
+    margin-right: 0.5rem;
 }
 
 .brand {
@@ -27,4 +28,21 @@
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.menu-item {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+}
+
+.menu-item:hover {
+    text-decoration: underline;
 }
