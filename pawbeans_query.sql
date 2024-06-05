@@ -20,6 +20,11 @@ CREATE TYPE serving_type AS ENUM (
     'cold'
 );
 
+CREATE TYPE order_status AS ENUM (
+    'Paid',
+    'Waiting for Payment'
+);
+
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
@@ -55,6 +60,7 @@ CREATE TABLE personalized_coffee_ratings (
     UNIQUE (user_id, personalized_coffee_id)
 );
 
+<<<<<<< HEAD
 CREATE OR REPLACE FUNCTION update_average_rating()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -75,6 +81,8 @@ AFTER INSERT OR UPDATE ON personalized_coffee_ratings
 FOR EACH ROW
 EXECUTE FUNCTION update_average_rating();
 
+=======
+>>>>>>> d5dbde27aaf6ef49899e63d9bda82556d9d1791c
 CREATE TABLE orders (
     order_id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(user_id),
@@ -91,4 +99,14 @@ INSERT INTO coffees (name, price) VALUES
 ('Espresso', 2.50),
 ('Latte', 3.50),
 ('Cappuccino', 3.00),
+<<<<<<< HEAD
 ('Macchiato', 3.20);
+=======
+('Machiato', 3.20)
+;
+
+INSERT INTO personalized_coffees (user_id, rating, review, bean_type, topping, size, serving_type) VALUES
+(1, 4.5, 'Great espresso with a nice aroma!', 'Bali Kintamani Arabica', 'none', 'small', 'hot'),
+(2, 4.2, 'Delicious latte with perfect amount of milk', 'Dampit Robusta', 'chocolate sauce', 'medium', 'hot'),
+(3, 4.3, 'Cappuccino with a wonderful frothy top!', 'Toraja Robusta', 'caramel sauce', 'large', 'cold');
+>>>>>>> d5dbde27aaf6ef49899e63d9bda82556d9d1791c
