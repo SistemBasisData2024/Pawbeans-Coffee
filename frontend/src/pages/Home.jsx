@@ -7,6 +7,7 @@ import PersonalizedCoffeeCard from '../components/PersonalizedCoffeeCard';
 import CustomizeCoffeeModal from '../components/CustomizeCoffeeModal';
 import '../style/NavbarStyle.css';
 import '../style/HomeStyle.css';
+import CoffeeDisplay from "../components/CoffeeDisplay.jsx";
 
 const Home = () => {
     const [user, setUser] = useState(null);

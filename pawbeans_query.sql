@@ -38,6 +38,7 @@ CREATE TABLE coffees (
     price DECIMAL(10, 2) NOT NULL
 );
 
+
 CREATE TABLE personalized_coffees (
     personalized_coffee_id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(user_id),
@@ -74,9 +75,10 @@ CREATE TABLE orders (
 CREATE TABLE cart_items (
     cart_id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(user_id),
-    item_id INTEGER NOT NULL,
+    coffee_id INT REFERENCES coffees(coffee_id),
     quantity INTEGER NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    UNIQUE (user_id, cart_id, coffee_id)
 );
 
 INSERT INTO coffees (name, price) VALUES

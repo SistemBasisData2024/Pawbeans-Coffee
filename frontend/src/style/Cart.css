@@ -1,5 +1,5 @@
 .cart {
-    margin: 100px 0px;
+    margin: 100px 0;
 }
 
 .cart hr {
@@ -17,7 +17,7 @@
 }
 
 .cart-items-item {
-    margin: 10px 0px;
+    margin: 10px 0;
     color: black;
 }
 

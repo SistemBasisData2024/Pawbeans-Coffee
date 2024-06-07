@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
-import {coffee_list} from '../assets/assets.js';
 import axios from "axios";
 
 export const StoreModal = createContext(null);
@@ -22,7 +21,7 @@ const StoreModalProvider = ({ children }) => {
         setCartItems(newCartItems);
 
         if (token) {
-            await axios.post(`${url}/api/cart/add`, { userId: token, itemId });
+            await axios.post(`${url}/cart/add`, { userId: token, itemId });
         }
     };
 
@@ -38,7 +37,7 @@ const StoreModalProvider = ({ children }) => {
         setCartItems(newCartItems);
 
         if (token) {
-            await axios.post(`${url}/api/cart/remove`, { userId: token, itemId });
+            await axios.post(`${url}/cart/remove`, { userId: token, itemId });
         }
     };
 
@@ -50,12 +49,12 @@ const StoreModalProvider = ({ children }) => {
     };
 
     const fetchCoffeeList = async () => {
-        const response = await axios.get(`${url}/api/coffee/list`);
+        const response = await axios.get(`${url}/coffee/list`);
         setCoffeeList(response.data.data);
     };
 
     const loadCartData = async (token) => {
-        const response = await axios.post(`${url}/api/cart/get`, { userId: token });
+        const response = await axios.post(`${url}/cart/get`, { userId: token });
         setCartItems(response.data.cartData);
     };
 
@@ -70,7 +69,7 @@ const StoreModalProvider = ({ children }) => {
             }
         };
         loadData();
-    }, []);
+    }, []); // Empty dependency array to run only once
 
     const contextValue = {
         url,
