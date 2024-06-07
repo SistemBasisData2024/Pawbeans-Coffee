@@ -51,7 +51,18 @@
     font-size: 1em;
     margin: 4px 0;
 }
-
+.coffee-card button {
+    margin-top: 10px;
+    border: #eaeaea;
+    color: white;
+    background-color: #0C1D26;
+    width: max(15vw,200px);
+    padding: 12px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    max-width: 100px;
+}
 .rating {
     display: flex;
     align-items: center;

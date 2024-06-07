@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0728ee43-6cf3-419a-9cbf-2d1a3f3e8587" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/cartController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/cartController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CoffeeCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CoffeeCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CoffeeDisplay.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CoffeeItem.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/StoreModal.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Cart.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/style/CoffeeCardStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/style/CoffeeCardStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pawbeans_query.sql" beforeDir="false" afterPath="$PROJECT_DIR$/pawbeans_query.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,9 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JSX File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="JSX File" />
       </list>
     </option>
   </component>
@@ -75,7 +82,8 @@
       <workItem from="1717509390133" duration="29034000" />
       <workItem from="1717583129428" duration="3011000" />
       <workItem from="1717667082333" duration="8899000" />
-      <workItem from="1717758390657" duration="6372000" />
+      <workItem from="1717758390657" duration="7707000" />
+      <workItem from="1717768804755" duration="9430000" />
     </task>
     <servers />
   </component>

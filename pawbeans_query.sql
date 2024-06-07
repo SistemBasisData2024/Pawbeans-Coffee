@@ -80,6 +80,9 @@ CREATE TABLE cart_items (
     UNIQUE (user_id, cart_id)
 );
 
+ALTER TABLE cart_items
+ADD CONSTRAINT cart_items_key UNIQUE (user_id, coffee_id);
+
 INSERT INTO coffees (name, price) VALUES
 ('Espresso', 2.50),
 ('Latte', 3.50),

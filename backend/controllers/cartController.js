@@ -12,7 +12,7 @@ const addToCart = async (req, res) => {
         );
         res.json({ success: true, message: 'Added To Cart' });
     } catch (error) {
-        console.error(error);
+        console.error(error.message);
         res.json({ success: false, message: 'Error' });
     }
 };
@@ -41,9 +41,9 @@ const removeFromCart = async (req, res) => {
 
 const getCart = async (req, res) => {
     try {
-        const { user_id } = req.body;
+        const { user_id } = req.params;
         const result = await pool.query(
-            `SELECT item_id, quantity
+            `SELECT coffee_id, quantity
              FROM cart_items
              WHERE user_id = $1`,
             [user_id]

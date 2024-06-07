@@ -7,7 +7,6 @@ import PersonalizedCoffeeCard from '../components/PersonalizedCoffeeCard';
 import CustomizeCoffeeModal from '../components/CustomizeCoffeeModal';
 import '../style/NavbarStyle.css';
 import '../style/HomeStyle.css';
-import CoffeeDisplay from "../components/CoffeeDisplay.jsx";
 
 const Home = () => {
     const [user, setUser] = useState(null);
@@ -141,7 +140,7 @@ const Home = () => {
             });
             if (!response.ok) {
                 const errorText = await response.text();
-                console.error('Error fetching cart!', errorText);
+                console.error('Error fetching cart: ', errorText);
             }
             const data = await response.json();
         } catch (error) {
@@ -149,6 +148,29 @@ const Home = () => {
         }
     };
 
+    const addToCart = async (coffeeId, quantity = 1) => {
+        try {
+            const response = await fetch (`http://localhost:5000/cart/add-cart`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    userId: user.user_id,
+                    coffeeId: coffeeId,
+                    quantity: quantity
+                })
+            });
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error('Failed to add to cart: ', errorText);
+            } else {
+                console.log('Item added to the cart successfully');
+            }
+        } catch (error) {
+            console.error('Failed to add to the cart: ', error);
+        }
+    }
 
 
     return (
@@ -168,7 +190,7 @@ const Home = () => {
                     <div className="coffee-cards-container">
                         {coffees.map((coffee) => (
                             <div key={coffee.coffee_id}>
-                                <CoffeeCard coffee={coffee} image={getCoffeeImage(coffee.coffee_id)} />
+                                <CoffeeCard coffee={coffee} image={getCoffeeImage(coffee.coffee_id)} onAddToCart={{addToCart}}/>
                             </div>
                         ))}
                     </div>
