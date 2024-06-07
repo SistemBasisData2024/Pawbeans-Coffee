@@ -134,6 +134,21 @@ const Home = () => {
         }
     };
 
+    const getCart = async (userId) => {
+        try {
+            const response = await fetch(`http://localhost:5000/cart/get-cart/${userId}`, {
+                method: 'GET',
+            });
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error('Error fetching cart!', errorText);
+            }
+            const data = await response.json();
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
     return (
         <div className="container">
             <Navbar />

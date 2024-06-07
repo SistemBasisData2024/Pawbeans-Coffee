@@ -30,7 +30,7 @@ const removeFromCart = async (req, res) => {
         await pool.query(
             `DELETE FROM cart_items
              WHERE user_id = $1 AND coffee_id = $2 AND quantity <= 0`,
-            [user_id , coffee_id]
+            [user_id, coffee_id]
         );
         res.json({ success: true, message: 'Removed From Cart' });
     } catch (error) {
@@ -41,7 +41,7 @@ const removeFromCart = async (req, res) => {
 
 const getCart = async (req, res) => {
     try {
-        const { user_id  } = req.body;
+        const { user_id } = req.body;
         const result = await pool.query(
             `SELECT item_id, quantity
              FROM cart_items
