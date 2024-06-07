@@ -41,14 +41,14 @@ const removeFromCart = async (req, res) => {
 
 const getCart = async (req, res) => {
     try {
-        const { user_id } = req.params;
+        const { user_id } = req.body;
         const result = await pool.query(
             `SELECT coffee_id, quantity
              FROM cart_items
              WHERE user_id = $1`,
             [user_id]
         );
-        res.json({ success: true, cartData: result.rows });
+        res.json({ success: true, cartData: result.rows[0] });
     } catch (error) {
         console.error(error);
         res.json({ success: false, message: 'Error' });
