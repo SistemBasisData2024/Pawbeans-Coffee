@@ -77,8 +77,7 @@ CREATE TABLE cart_items (
     user_id INT REFERENCES users(user_id),
     coffee_id INT REFERENCES coffees(coffee_id),
     quantity INTEGER NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    UNIQUE (user_id, cart_id, coffee_id)
+    UNIQUE (user_id, cart_id)
 );
 
 INSERT INTO coffees (name, price) VALUES
