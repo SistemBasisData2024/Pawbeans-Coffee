@@ -86,7 +86,7 @@ const getUserCart = async (req, res) => {
             ON
                 cart_items.coffee_id = coffees.coffee_id
             WHERE
-                cart_items.user_id = $1;`,
+                cart_items.user_id = $1`,
             [user_id]
         );
         res.json({ success: true, cartData: result.rows });
@@ -96,11 +96,24 @@ const getUserCart = async (req, res) => {
     }
 };
 
+const deleteFromCart = async (req, res) => {
+    try {
+        const {user_id, coffee_id} = req.body;
+        await pool.query(
+            `DELETE FROM cart_items WHERE user_id = $1 AND coffee_id = $2`, [user_id, coffee_id]
+        );
+        res.json({ success: true, message: 'Deleted From Cart' });
+    } catch (error) {
+        console.error(error);
+        res.json({ success: false, message: 'Error' });
+    }
+};
 
 module.exports = {
     addToCart,
     removeFromCart,
     removeCartById,
     getCartByUserId,
-    getUserCart
+    getUserCart,
+    deleteFromCart
 }
