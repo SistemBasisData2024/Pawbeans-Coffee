@@ -17,8 +17,8 @@ At the end of each month, the top 50 users on the leaderboard receive special vo
 
 ## Progress Report
 We have held two progress report meetings with Bang Eriqo on May 24, 2024 and June 8, 2024, where all members were present.
-![progress](https://github.com/SistemBasisData2024/Pawbeans-Coffee/assets/144354346/452a3c78-bd2e-4a3e-8c30-592021fdeb65)
-![Screenshot 2024-06-08 160643](https://github.com/SistemBasisData2024/Pawbeans-Coffee/assets/144354346/6c9cbfca-8061-4d6d-8955-e3614fde331d)
+![progress](https://github.com/SistemBasisData2024/Pawbeans-Coffee/assets/144354346/acac0af0-3739-4651-9606-5f276d2a747f)
+![Screenshot 2024-06-08 160643](https://github.com/SistemBasisData2024/Pawbeans-Coffee/assets/144354346/697c4b42-a01e-46a8-a657-a97ee66e1331)
 
 ## Authors
 #### Sistem Basis Data 2024 - Kelompok 12
