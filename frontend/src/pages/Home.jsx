@@ -148,7 +148,7 @@ const Home = () => {
         }
     };
 
-    const addToCart = async (coffee, quantity = 1) => {
+    const addToCart = async (user, coffee, quantity = 1) => {
         try {
             const response = await fetch (`http://localhost:5000/cart/add-cart`, {
                 method: 'POST',
@@ -171,7 +171,6 @@ const Home = () => {
             console.error('Failed to add to the cart: ', error);
         }
     };
-
     //const removeFromCart = async (coffeeId) => {}
 
     return (
