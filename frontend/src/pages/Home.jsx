@@ -148,7 +148,7 @@ const Home = () => {
         }
     };
 
-    const addToCart = async (coffeeId, quantity = 1) => {
+    const addToCart = async (coffee, quantity = 1) => {
         try {
             const response = await fetch (`http://localhost:5000/cart/add-cart`, {
                 method: 'POST',
@@ -156,22 +156,23 @@ const Home = () => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    userId: user.user_id,
-                    coffeeId: coffeeId,
+                    user_id: user.user_id,
+                    coffee_id: coffee.coffee_id,
                     quantity: quantity
                 })
             });
-            if (!response.ok) {
-                const errorText = await response.text();
-                console.error('Failed to add to cart: ', errorText);
-            } else {
+            if (response.ok) {
                 console.log('Item added to the cart successfully');
+            } else {
+                const responseBody = await response.json();
+                console.error('Failed to add to cart: ', responseBody);
             }
         } catch (error) {
             console.error('Failed to add to the cart: ', error);
         }
-    }
+    };
 
+    //const removeFromCart = async (coffeeId) => {}
 
     return (
         <div className="container">
@@ -190,7 +191,7 @@ const Home = () => {
                     <div className="coffee-cards-container">
                         {coffees.map((coffee) => (
                             <div key={coffee.coffee_id}>
-                                <CoffeeCard coffee={coffee} image={getCoffeeImage(coffee.coffee_id)} onAddToCart={{addToCart}}/>
+                                <CoffeeCard coffee={coffee} image={getCoffeeImage(coffee.coffee_id)} addToCart={addToCart} user={user}/>
                             </div>
                         ))}
                     </div>
@@ -199,8 +200,7 @@ const Home = () => {
                         <p>Create your own special menu and share it with others !!!</p>
                         <button
                             className="add-customization-button"
-                            onClick={() => setIsModalOpen(true)}
-                        >
+                            onClick={() => setIsModalOpen(true)}>
                             Add Customization
                         </button>
                         <div className="personalized-coffee-cards">

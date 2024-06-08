@@ -1,7 +1,7 @@
 import React from 'react';
 import '../style/CoffeeCardStyle.css';
 
-const CoffeeCard = ({ coffee, image, onAddToCart }) => {
+const CoffeeCard = ({ coffee, image, addToCart, user }) => {
     const price = parseFloat(coffee.price);
 
     return (
@@ -10,7 +10,7 @@ const CoffeeCard = ({ coffee, image, onAddToCart }) => {
             <h2>{coffee.name}</h2>
             <p>Price: ${!isNaN(price) ? price.toFixed(2) : 'N/A'}</p>
 
-            <button onClick={() => onAddToCart(coffee.coffee_id)}>Add to Cart</button>
+            <button onClick={() => addToCart(user, coffee)}>Add to Cart</button>
         </div>
     );
 };

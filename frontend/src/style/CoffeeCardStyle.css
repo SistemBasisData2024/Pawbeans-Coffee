@@ -25,7 +25,7 @@
 }
 
 .coffee-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -63,6 +63,12 @@
     display: inline-block;
     max-width: 100px;
 }
+
+.coffee-card button:hover {
+    transform: scale(0.95);
+    box-shadow: 0 4px 8px #333333;
+}
+
 .rating {
     display: flex;
     align-items: center;
