@@ -171,7 +171,30 @@ const Home = () => {
             console.error('Failed to add to the cart: ', error);
         }
     };
-    //const removeFromCart = async (coffeeId) => {}
+
+    const removeFromCart = async (user, coffee, quantity = -1) => {
+        try {
+            const response = await fetch ('http://localhost:5000/cart/remove-cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user_id: user.user_id,
+                    coffee_id: coffee.coffee_id,
+                    quantity: quantity
+                })
+            });
+            if (response.ok) {
+                console.log('Item removed from cart successfully');
+            } else {
+                const responseBody = await response.json();
+                console.error('Removing item from cart failed: ', responseBody);
+            }
+        } catch (error) {
+            console.error('Failed to remove from cart: ', error);
+        }
+    };
 
     return (
         <div className="container">
@@ -190,7 +213,7 @@ const Home = () => {
                     <div className="coffee-cards-container">
                         {coffees.map((coffee) => (
                             <div key={coffee.coffee_id}>
-                                <CoffeeCard coffee={coffee} image={getCoffeeImage(coffee.coffee_id)} addToCart={addToCart} user={user}/>
+                                <CoffeeCard coffee={coffee} image={getCoffeeImage(coffee.coffee_id)} addToCart={addToCart} removeFromCart={removeFromCart} user={user}/>
                             </div>
                         ))}
                     </div>
