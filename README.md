@@ -15,6 +15,11 @@ Users can order the coffee they create directly from the website. Additionally, 
 #### 4. Monthly Rewards
 At the end of each month, the top 50 users on the leaderboard receive special vouchers. These rewards recognize the creativity and popularity of the best coffee recipes in the community.
 
+## Progress Report
+We have held two progress report meetings with Bang Eriqo on May 24, 2024 and June 8, 2024, where all members were present.
+![progress](https://github.com/SistemBasisData2024/Pawbeans-Coffee/assets/144354346/452a3c78-bd2e-4a3e-8c30-592021fdeb65)
+![Screenshot 2024-06-08 160643](https://github.com/SistemBasisData2024/Pawbeans-Coffee/assets/144354346/6c9cbfca-8061-4d6d-8955-e3614fde331d)
+
 ## Authors
 #### Sistem Basis Data 2024 - Kelompok 12
 - [2206062983 - Kania Aidilla Firka](https://github.com/kaniafirka)
