@@ -1,69 +1,70 @@
-import React, { useContext } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import '../style/Cart.css';
 import { useNavigate } from "react-router-dom";
 import {CartContext} from "../components/CartContext.jsx";
+import Navbar from "../components/Navbar.jsx";
+import '../style/NavbarStyle.css';
+import Sidebar from "../components/Sidebar.jsx";
+import '../style/SidebarStyle.css';
 
 const Cart = () => {
-    const { cartItems, addToCart, removeFromCart, coffee, image } = useContext(CartContext);
+    const [user, setUser] = useState(null);
+    const [cartItems, setCartItems] = useState([]);
     const navigate = useNavigate();
-    const price = parseFloat(coffee.price);
 
-    if (!cartItems) {
-        console.error('cartItems is undefined.');
-        return <div>Loading...</div>;
-    }
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        } else {
+            navigate('/users/login');
+        }
+    }, [navigate]);
+
+    useEffect(() => {
+        const fetchUserCart = async () => {
+            if (!user) return;
+            try {
+                const response = await fetch('http://localhost:5000/cart/get-cart/${user.user_id}');
+                const data = await response.json();
+                setCartItems(data);
+            } catch (error) {
+                console.error('Error fetching cart:', error);
+            }
+        };
+        fetchUserCart();
+    }, [user]);
+
+    const toggleAnonymous = async () => {
+        if (!user) return;
+        try {
+            const response = await fetch('http://localhost:5000/cart/toggleAnonymous', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    userId: user.user_id,
+                    isAnonymous: !user.is_anonymous
+                })
+            });
+            const updatedUser = await response.json();
+            setUser(updatedUser);
+            localStorage.setItem('user', JSON.stringify(updatedUser));
+        } catch (error) {
+            console.error('Error toggling anonymous:', error);
+        }
+    };
 
     return (
-        <div className='cart'>
-            <div className='cart-items'>
-                <div className='cart-item-title'>
-                    <p>Items</p> <p>Title</p> <p>Price</p> <p>Quantity</p> <p>Total</p> <p>Remove</p>
+        <div className="cart">
+            <Navbar/>
+            <div className="cart-items">
+                <div className="cart-items-title">
+                    <p>Item</p> <p>Item Name</p> <p>Price</p> <p>Quantity</p> <p>Total</p> <p>Remove Item</p>
                 </div>
-                <br/>
-                <hr/>
-                {cartItems.map((coffee, index) => (
-                    <div key={index}>
-                        <div className="cart-items-title cart-items-item">
-                            <img src={image} alt={coffee.name} className="cart-coffee-image"/>
-                            <p>{coffee.name}</p>
-                            <p>{coffee.price}</p>
-                            <div>{coffee.quantity}</div>
-                            <p>CartTotal: ${coffee.price * coffee.quantity}</p>
-                            <p className='cart-items-remove-icon' onClick={() => removeFromCart(coffee.coffee_id)}>x</p>
-                        </div>
-                        <hr/>
-                    </div>
-                ))}
-            </div>
-            <div className="cart-bottom">
-                <div className="cart-total">
-                    <h2>Cart Totals</h2>
-                    <div>
-                        <div className="cart-total-details">
-                            <p>Subtotal</p>
-                            <p>${getTotalCartAmount()}</p>
-                        </div>
-                        <hr/>
-                        <div className="cart-total-details">
-                            <p>Delivery Fee</p>
-                            <p>${getTotalCartAmount() === 0 ? 0 : 5}</p>
-                        </div>
-                        <hr/>
-                        <div className="cart-total-details">
-                            <b>Total</b>
-                            <b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 5}</b>
-                        </div>
-                    </div>
-                    <button>PROCEED TO CHECKOUT</button>
-                </div>
-                <div className="cart-promocode">
-                    <div>
-                        <p>If you have a promo code, Enter it here</p>
-                        <div className='cart-promocode-input'>
-                            <input type="text" placeholder='promo code'/>
-                            <button>Submit</button>
-                        </div>
-                    </div>
+                <div className="cart-items-lists">
+                   ok
                 </div>
             </div>
         </div>

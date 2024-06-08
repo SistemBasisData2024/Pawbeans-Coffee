@@ -54,25 +54,53 @@ const removeCartById = async (req, res) => {
     }
 };
 
-const getCart = async (req, res) => {
+const getCartByUserId = async (req, res) => {
     try {
-        const { user_id } = req.body;
+        const { user_id } = req.params;
         const result = await pool.query(
             `SELECT coffee_id, quantity
              FROM cart_items
              WHERE user_id = $1`,
             [user_id]
         );
-        res.json({ success: true, cartData: result.rows[0] });
+        res.json({ success: true, cartData: result.rows });
     } catch (error) {
         console.error(error);
         res.json({ success: false, message: 'Error' });
     }
 };
 
+const getUserCart = async (req, res) => {
+    try {
+        const { user_id } = req.body;
+        const result = await pool.query(
+            `SELECT
+                cart_items.cart_id,
+                cart_items.quantity,
+                coffees.name,
+                coffees.price
+            FROM
+                cart_items
+            JOIN
+                coffees
+            ON
+                cart_items.coffee_id = coffees.coffee_id
+            WHERE
+                cart_items.user_id = $1;`,
+            [user_id]
+        );
+        res.json({ success: true, cartData: result.rows });
+    } catch (error) {
+        console.error('Error getting user cart:', error);
+        res.status(500).send('Server Error');
+    }
+};
+
+
 module.exports = {
     addToCart,
     removeFromCart,
     removeCartById,
-    getCart
+    getCartByUserId,
+    getUserCart
 }
