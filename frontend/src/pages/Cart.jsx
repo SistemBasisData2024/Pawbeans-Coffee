@@ -20,22 +20,6 @@ const Cart = () => {
             navigate('/login');
         }
     }, [navigate]);
-/*
-    useEffect(() => {
-        const fetchUserCart = async () => {
-            if (!user) return;
-            try {
-                const response = await fetch(`http://localhost:5000/cart/user-cart${user.user_id}`);
-                const data = await response.json();
-                setCartData(data);
-            } catch (error) {
-                console.error('Error fetching cart:', error);
-            }
-        };
-        fetchUserCart( );
-    }, [user]);
-
- */
 
 
     const fetchUserCart = async ()=> {
@@ -55,32 +39,6 @@ const Cart = () => {
         fetchUserCart();
     }, [user]);
 
-
-    const deleteFromCart = async (user, coffee) => {
-        try {
-            const response = await fetch(`http://localhost:5000/cart/delete-cart`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    user_id: user.user_id,
-                    coffee_id: coffee.coffee_id
-                })
-            });
-            if (response.ok) {
-                console.log('Coffee Deleted from cart');
-                setCartData(prev => prev.filter(c => c.coffee_id !== coffee.coffee_id));
-            } else {
-                const responseBody = await response.json();
-                console.error('Failed to delete coffee from cart: ', responseBody);
-            }
-        } catch (error) {
-            console.error('Error deleting from cart:', error);
-        }
-    };
-
-/*
     const deleteFromCart = async (user, coffee) => {
         try {
             const response = await axios.delete('http://localhost:5000/cart/delete-cart', {
@@ -95,7 +53,7 @@ const Cart = () => {
 
             if (response.status === 200) {
                 console.log('Coffee Deleted from cart');
-                setCartCoffees(prev => prev.filter(c => c.coffee_id !== coffee.coffee_id));
+                setCartData(prev => prev.filter(c => c.coffee_id !== coffee.coffee_id));
             } else {
                 console.error('Failed to delete coffee from cart: ', response.data);
             }
@@ -103,7 +61,7 @@ const Cart = () => {
             console.error('Error deleting from cart:', error);
         }
     };
- */
+
     const getCoffeeImage = (coffee_id) => {
         switch (coffee_id) {
             case 1: return '/espresso.jpg';
@@ -121,22 +79,41 @@ const Cart = () => {
         <div className="cart">
             <Navbar/>
             <div className="cart-items-title">
-                <p>Item</p> <p>Item Name</p> <p>Price</p> <p>Quantity</p> <p>Remove Item</p>
+                <p>Item</p> <p>Quantity</p> <p>Item Name</p> <p>Price</p>  <p>Remove Item</p>
             </div>
             <hr/>
-            <div className="cart-cards">
+            <div className="cart-cards-container">
                 {cartData.map((coffee) => (
                     <div key={coffee.coffee_id}>
-                        <img src={getCoffeeImage(coffee.coffee_id)} alt={coffee.name} className="cart-image"/>
-                        <p>{coffee.quantity}</p>
-                        <p>{coffee.name}</p>
-                        <p>{coffee.price}</p>
-                        <button className="delete-cart-button" onClick={() => deleteFromCart(user, {coffee_id: coffee.coffee_id})}>X</button>
+                        <CartCard coffee={coffee} image={getCoffeeImage(coffee.coffee_id)} deleteFromCart={deleteFromCart} user={user}/>
                     </div>
                 ))}
             </div>
         </div>
     );
+    /*
+        return (
+            <div className="cart">
+                <Navbar/>
+                <div className="cart-items-title">
+                    <p>Item</p> <p>Item Name</p> <p>Price</p> <p>Quantity</p> <p>Remove Item</p>
+                </div>
+                <hr/>
+                <div className="cart-cards">
+                    {cartData.map((coffee) => (
+                        <div key={coffee.coffee_id}>
+                            <img src={getCoffeeImage(coffee.coffee_id)} alt={coffee.name} className="cart-image"/>
+                            <p>{coffee.quantity}</p>
+                            <p>{coffee.name}</p>
+                            <p>{coffee.price}</p>
+                            <button className="delete-cart-button" onClick={() => deleteFromCart(user, {coffee_id: coffee.coffee_id})}>X</button>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+
+     */
     /*
         return (
             <div className="cart">
