@@ -15,7 +15,8 @@ Users can order the coffee they create directly from the website. Additionally, 
 #### 4. Monthly Rewards
 At the end of each month, the top 50 users on the leaderboard receive special vouchers. These rewards recognize the creativity and popularity of the best coffee recipes in the community.
 
-## 🟦 Flowchart
+## 🟦 Diagram
+### I. Flowchart
 ![SBD Group 12_Flowchart](https://github.com/SistemBasisData2024/Pawbeans-Coffee/assets/100142515/54fd0f15-54ad-4e51-b338-2fe6ffc711a2)
 
 ## 🗓️ Progress Report
