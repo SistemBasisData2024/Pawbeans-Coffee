@@ -22,6 +22,9 @@ At the end of each month, the top 50 users on the leaderboard receive special vo
 ### II. Entity-Relationship Diagram (ERD)
 ![finptro](https://github.com/SistemBasisData2024/Pawbeans-Coffee/assets/144354346/1126e352-54dc-44a9-b114-eb0bc581558c)
 
+### III. Unified Modeling Language (UML)
+![Untitled](https://github.com/SistemBasisData2024/Pawbeans-Coffee/assets/144354346/637f06b9-071c-4cd5-b5b7-b2ba173d761c)
+
 ## 🗓️ Progress Report
 We have held two progress report meetings with our mentor on May 24, 2024 and June 8, 2024, where all members were present.
 ![progress](https://github.com/SistemBasisData2024/Pawbeans-Coffee/assets/144354346/acac0af0-3739-4651-9606-5f276d2a747f)
