@@ -9,7 +9,7 @@ import CartCard from "../components/CartCard.jsx";
 
 const Cart = () => {
     const [user, setUser] = useState(null);
-    const [cartCoffees, setCartCoffees] = useState([]);
+    const [cartData, setCartData] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -27,13 +27,13 @@ const Cart = () => {
             try {
                 const response = await fetch(`http://localhost:5000/cart/user-cart${user.user_id}`);
                 const data = await response.json();
-                setCartCoffees(data);
+                setCartData(data);
             } catch (error) {
                 console.error('Error fetching cart:', error);
             }
         };
         fetchUserCart( );
-    }, []);
+    }, [user]);
 
 /*
     const fetchUserCart = async ()=> {
@@ -43,7 +43,7 @@ const Cart = () => {
         }
         try {
             const response = await axios.get(`http://localhost:5000/cart/user-cart/${user.user_id}`);
-            setCartCoffees(response.data);
+            setCartData(response.data);
         } catch (error) {
             console.error('Error fetching cart:', error);
         }
@@ -67,7 +67,7 @@ const Cart = () => {
             });
             if (response.ok) {
                 console.log('Coffee Deleted from cart');
-                //setCartCoffees(prev => prev.filter(c => c.coffee_id !== coffee.coffee_id));
+                setCartData(prev => prev.filter(c => c.coffee_id !== coffee.coffee_id));
             } else {
                 const responseBody = await response.json();
                 console.error('Failed to delete coffee from cart: ', responseBody);
@@ -122,7 +122,7 @@ const Cart = () => {
             </div>
             <hr/>
             <div className="cart-cards">
-                {cartCoffees.map((coffee) => (
+                {cartData.map((coffee) => (
                     <div key={coffee.coffee_id}>
                         <img src={getCoffeeImage(coffee.coffee_id)} alt={coffee.name} className="cart-image"/>
                         <p>{coffee.quantity}</p>
