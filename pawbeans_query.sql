@@ -1,4 +1,5 @@
-CREATE DATABASE pawbeans_database;
+CREATE DATABASE Pawbeans_database;
+
 \c pawbeans_database;
 
 CREATE TYPE bean_type AS ENUM (
@@ -42,10 +43,10 @@ CREATE TABLE personalized_coffees (
     personalized_coffee_id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(user_id),
     description TEXT,
-    bean_type VARCHAR(50) NOT NULL,
+    bean_type bean_type NOT NULL,
     topping TEXT[] NOT NULL, 
-    size VARCHAR(20) NOT NULL,
-    serving_type VARCHAR(20) NOT NULL,
+    size size NOT NULL,
+    serving_type serving_type NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     rating DECIMAL(2, 1) DEFAULT 0
 );
@@ -58,6 +59,26 @@ CREATE TABLE personalized_coffee_ratings (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     UNIQUE (user_id, personalized_coffee_id)
 );
+
+CREATE OR REPLACE FUNCTION update_average_rating()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE personalized_coffees
+    SET rating = (
+        SELECT ROUND(AVG(rating), 1)
+        FROM personalized_coffee_ratings
+        WHERE personalized_coffee_id = NEW.personalized_coffee_id
+    )
+    WHERE personalized_coffee_id = NEW.personalized_coffee_id;
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER update_rating_trigger
+AFTER INSERT OR UPDATE ON personalized_coffee_ratings
+FOR EACH ROW
+EXECUTE FUNCTION update_average_rating();
 
 CREATE TABLE orders (
     order_id SERIAL PRIMARY KEY,
