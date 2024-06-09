@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0728ee43-6cf3-419a-9cbf-2d1a3f3e8587" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PPT KEL. 12 (PAWBEANS COFFEE).pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/coffeeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/coffeeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/style/NavbarStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/style/NavbarStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pawbeans_query.sql" beforeDir="false" afterPath="$PROJECT_DIR$/pawbeans_query.sql" afterDir="false" />
-    </list>
+    <list default="true" id="0728ee43-6cf3-419a-9cbf-2d1a3f3e8587" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
