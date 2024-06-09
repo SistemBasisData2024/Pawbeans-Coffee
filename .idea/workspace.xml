@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0728ee43-6cf3-419a-9cbf-2d1a3f3e8587" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/LeaderboardCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/LeaderboardCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Leaderboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Leaderboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/style/Cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/style/Cart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/style/CartCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/style/CartCard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/style/LeaderboardCardStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/style/LeaderboardCardStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/style/NavbarStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/style/NavbarStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pawbeans_query.sql" beforeDir="false" afterPath="$PROJECT_DIR$/pawbeans_query.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +82,7 @@
       <workItem from="1717583129428" duration="3011000" />
       <workItem from="1717667082333" duration="8899000" />
       <workItem from="1717758390657" duration="7707000" />
-      <workItem from="1717768804755" duration="96924000" />
+      <workItem from="1717768804755" duration="98482000" />
     </task>
     <servers />
   </component>
