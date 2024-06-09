@@ -72,7 +72,7 @@ const getCartByUserId = async (req, res) => {
 
 const getUserCart = async (req, res) => {
     try {
-        const { user_id } = req.body;
+        const { user_id } = req.params;
         const result = await pool.query(
             `SELECT
                 cart_items.cart_id,

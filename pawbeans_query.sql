@@ -86,8 +86,30 @@ INSERT INTO coffees (name, price) VALUES
 ('Espresso', 2.50),
 ('Latte', 3.50),
 ('Cappuccino', 3.00),
-('Machiato', 3.20)
-;
+('Machiato', 3.20);
+
+SELECT pc.*,
+       COALESCE(ROUND(AVG(r.rating), 1), pc.rating) AS average_rating
+FROM personalized_coffees pc
+LEFT JOIN personalized_coffee_ratings r
+ON pc.personalized_coffee_id = r.personalized_coffee_id
+WHERE pc.user_id = 3
+GROUP BY pc.personalized_coffee_id;
+
+SELECT
+    cart_items.cart_id,
+    cart_items.quantity,
+    coffees.name,
+    coffees.price
+FROM
+    cart_items
+JOIN
+    coffees
+ON
+    cart_items.coffee_id = coffees.coffee_id
+WHERE
+    cart_items.user_id = 3;
+
 
 INSERT INTO personalized_coffees (user_id, rating, review, bean_type, topping, size, serving_type) VALUES
 (1, 4.5, 'Great espresso with a nice aroma!', 'Bali Kintamani Arabica', 'none', 'small', 'hot'),
