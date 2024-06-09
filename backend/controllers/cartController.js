@@ -75,7 +75,7 @@ const getUserCart = async (req, res) => {
         const { user_id } = req.params;
         const result = await pool.query(
             `SELECT
-                cart_items.cart_id,
+                coffees.coffee_id,
                 cart_items.quantity,
                 coffees.name,
                 coffees.price
@@ -89,7 +89,8 @@ const getUserCart = async (req, res) => {
                 cart_items.user_id = $1`,
             [user_id]
         );
-        res.json({ success: true, cartData: result.rows });
+        const cartData = result.rows;
+        res.json(cartData);
     } catch (error) {
         console.error('Error getting user cart:', error);
         res.status(500).send('Server Error');

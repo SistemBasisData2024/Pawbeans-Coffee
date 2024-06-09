@@ -20,7 +20,7 @@ const Cart = () => {
             navigate('/login');
         }
     }, [navigate]);
-/*
+
     useEffect(() => {
         const fetchUserCart = async () => {
             if (!user) return;
@@ -33,9 +33,9 @@ const Cart = () => {
             }
         };
         fetchUserCart( );
-    }, [user]);
- */
+    }, []);
 
+/*
     const fetchUserCart = async ()=> {
         if (!user) {
             console.error('user_id is required to fetch the cart');
@@ -51,7 +51,7 @@ const Cart = () => {
     useEffect(() => {
         fetchUserCart();
     }, []);
-
+ */
 
     const deleteFromCart = async (user, coffee) => {
         try {
@@ -67,7 +67,7 @@ const Cart = () => {
             });
             if (response.ok) {
                 console.log('Coffee Deleted from cart');
-                setCartCoffees(prev => prev.filter(c => c.coffee_id !== coffee.coffee_id));
+                //setCartCoffees(prev => prev.filter(c => c.coffee_id !== coffee.coffee_id));
             } else {
                 const responseBody = await response.json();
                 console.error('Failed to delete coffee from cart: ', responseBody);
@@ -101,28 +101,6 @@ const Cart = () => {
         }
     };
  */
-
-    const toggleAnonymous = async () => {
-        if (!user) return;
-        try {
-            const response = await fetch('http://localhost:5000/cart/toggleAnonymous', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    userId: user.user_id,
-                    isAnonymous: !user.is_anonymous
-                })
-            });
-            const updatedUser = await response.json();
-            setUser(updatedUser);
-            localStorage.setItem('user', JSON.stringify(updatedUser));
-        } catch (error) {
-            console.error('Error toggling anonymous:', error);
-        }
-    };
-
     const getCoffeeImage = (coffee_id) => {
         switch (coffee_id) {
             case 1: return '/espresso.jpg';
@@ -150,9 +128,7 @@ const Cart = () => {
                         <p>{coffee.quantity}</p>
                         <p>{coffee.name}</p>
                         <p>{coffee.price}</p>
-                        <button className="delete-cart-button" onClick={() => deleteFromCart(user, {coffee_id: coffee.coffee_id})}>
-                            X
-                        </button>
+                        <button className="delete-cart-button" onClick={() => deleteFromCart(user, {coffee_id: coffee.coffee_id})}>X</button>
                     </div>
                 ))}
             </div>

@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0728ee43-6cf3-419a-9cbf-2d1a3f3e8587" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/cartController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/cartController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/cartRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/cartRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CartCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CartCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CartContext.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Cart.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/style/Cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/style/Cart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/style/CartCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/style/CartCard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/style/HomeStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/style/HomeStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/style/PersonalizedCoffeeCardStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/style/PersonalizedCoffeeCardStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pawbeans_query.sql" beforeDir="false" afterPath="$PROJECT_DIR$/pawbeans_query.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +89,7 @@
       <workItem from="1717583129428" duration="3011000" />
       <workItem from="1717667082333" duration="8899000" />
       <workItem from="1717758390657" duration="7707000" />
-      <workItem from="1717768804755" duration="75068000" />
+      <workItem from="1717768804755" duration="79708000" />
     </task>
     <servers />
   </component>

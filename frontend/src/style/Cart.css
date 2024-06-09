@@ -20,8 +20,7 @@
 }
 
 .cart-items-title p {
-    margin-block-end: 10px;
-    margin-block-start: 10px;
+    margin: 5px 0;;
 }
 
 .cart-cards {
@@ -45,7 +44,7 @@
 
 .cart-cards p {
     color: #0C1D26;
-    font-size: 1em;
+    font-size: max(1vw, 12px);
     margin: 4px 0;
 }
 .cart-image {

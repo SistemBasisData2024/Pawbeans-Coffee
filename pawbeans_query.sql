@@ -38,6 +38,9 @@ CREATE TABLE coffees (
     price DECIMAL(10, 2) NOT NULL
 );
 
+ALTER TABLE coffees
+ADD COLUMN quantity INTEGER DEFAULT 0;
+
 CREATE TABLE personalized_coffees (
     personalized_coffee_id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(user_id),

@@ -1,6 +1,7 @@
 .personalized-coffee-card {
     width: 100%; 
-    max-width: 1175px; 
+    max-width: 600px;
+    min-width: 550px;
     display: flex;
     position: relative;
     align-items: center;
@@ -16,8 +17,6 @@
     margin-right: 20px;
     align-self: center; 
 }
-
-
 
 .coffee-details {
     display: flex;
