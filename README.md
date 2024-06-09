@@ -19,6 +19,9 @@ At the end of each month, the top 50 users on the leaderboard receive special vo
 ### I. Flowchart
 ![SBD Group 12_Flowchart](https://github.com/SistemBasisData2024/Pawbeans-Coffee/assets/100142515/54fd0f15-54ad-4e51-b338-2fe6ffc711a2)
 
+### II. Entity-Relationship Diagram (ERD)
+![finptro](https://github.com/SistemBasisData2024/Pawbeans-Coffee/assets/144354346/1126e352-54dc-44a9-b114-eb0bc581558c)
+
 ## 🗓️ Progress Report
 We have held two progress report meetings with our mentor on May 24, 2024 and June 8, 2024, where all members were present.
 ![progress](https://github.com/SistemBasisData2024/Pawbeans-Coffee/assets/144354346/acac0af0-3739-4651-9606-5f276d2a747f)
