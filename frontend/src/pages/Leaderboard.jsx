@@ -56,6 +56,35 @@ const Leaderboard = () => {
         }
     };
 
+    const handleAddRating = async (coffeeId, rating) => {
+        try {
+            const response = await fetch('http://localhost:5000/api/ratings', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    userId: user.user_id,
+                    personalizedCoffeeId: coffeeId,
+                    rating: rating
+                })
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error('Failed to add rating:', errorText);
+                return;
+            }
+
+            const updatedCoffee = await response.json();
+            setPersonalizedCoffees(prevCoffees => prevCoffees.map(coffee => 
+                coffee.personalized_coffee_id === coffeeId ? updatedCoffee : coffee
+            ));
+        } catch (error) {
+            console.error('Error adding rating:', error);
+        }
+    };
+
     return (
         <div className="container">
             <Navbar />
@@ -79,6 +108,8 @@ const Leaderboard = () => {
                                 rating={coffee.average_rating || coffee.rating} 
                                 username={coffee.username} 
                                 isAnonymous={coffee.is_anonymous}
+                                coffeeId={coffee.personalized_coffee_id}
+                                onAddRating={handleAddRating}
                             />
                         ))}
                     </div>

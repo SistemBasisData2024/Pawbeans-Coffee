@@ -1,7 +1,10 @@
-import React from 'react';
-import '../style/LeaderboardCardStyle.css';
+import React, { useState } from 'react';
+import AddRatingModal from '../components/AddRatingModal';  // Pastikan impor benar
+import '../style/LeaderboardCardStyle.css';  // Impor gaya CSS
 
-const LeaderboardCard = ({ rank, description, rating, username, isAnonymous }) => {
+const LeaderboardCard = ({ rank, description, rating, username, isAnonymous, coffeeId, onAddRating }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const getRankClass = (rank) => {
         switch (rank) {
             case 1:
@@ -24,7 +27,15 @@ const LeaderboardCard = ({ rank, description, rating, username, isAnonymous }) =
                     <p className="username">{isAnonymous ? 'Anonymous' : username}</p>
                 </div>
                 <p className="rating">{rating}/5</p>
+                <button onClick={() => setIsModalOpen(true)}>Add Rating</button>
             </div>
+            {isModalOpen && (
+                <AddRatingModal
+                    coffeeId={coffeeId}
+                    onClose={() => setIsModalOpen(false)}
+                    onAddRating={onAddRating}
+                />
+            )}
         </div>
     );
 };
