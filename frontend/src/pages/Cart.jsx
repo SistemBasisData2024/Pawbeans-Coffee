@@ -20,7 +20,7 @@ const Cart = () => {
             navigate('/login');
         }
     }, [navigate]);
-
+/*
     useEffect(() => {
         const fetchUserCart = async () => {
             if (!user) return;
@@ -35,7 +35,9 @@ const Cart = () => {
         fetchUserCart( );
     }, [user]);
 
-/*
+ */
+
+
     const fetchUserCart = async ()=> {
         if (!user) {
             console.error('user_id is required to fetch the cart');
@@ -44,14 +46,15 @@ const Cart = () => {
         try {
             const response = await axios.get(`http://localhost:5000/cart/user-cart/${user.user_id}`);
             setCartData(response.data);
+            console.log(response.data);
         } catch (error) {
             console.error('Error fetching cart:', error);
         }
     };
     useEffect(() => {
         fetchUserCart();
-    }, []);
- */
+    }, [user]);
+
 
     const deleteFromCart = async (user, coffee) => {
         try {
