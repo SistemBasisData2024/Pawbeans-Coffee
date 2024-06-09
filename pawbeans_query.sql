@@ -38,9 +38,6 @@ CREATE TABLE coffees (
     price DECIMAL(10, 2) NOT NULL
 );
 
-ALTER TABLE coffees
-ADD COLUMN quantity INTEGER DEFAULT 0;
-
 CREATE TABLE personalized_coffees (
     personalized_coffee_id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(user_id),
@@ -99,19 +96,6 @@ ON pc.personalized_coffee_id = r.personalized_coffee_id
 WHERE pc.user_id = 3
 GROUP BY pc.personalized_coffee_id;
 
-SELECT
-    cart_items.cart_id,
-    cart_items.quantity,
-    coffees.name,
-    coffees.price
-FROM
-    cart_items
-JOIN
-    coffees
-ON
-    cart_items.coffee_id = coffees.coffee_id
-WHERE
-    cart_items.user_id = 3;
 
 
 INSERT INTO personalized_coffees (user_id, rating, review, bean_type, topping, size, serving_type) VALUES

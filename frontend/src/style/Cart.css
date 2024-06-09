@@ -14,7 +14,7 @@
     grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
     align-items: center;
     color: grey;
-    font-size: max(1vw, 12px);
+    font-size: max(2vw, 10px);
     padding-left: 20px;
     padding-right: 20px;
     margin-left: 30px

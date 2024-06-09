@@ -13,15 +13,15 @@
 }
 
 .card.rank-gold {
-    background-color: #ffd700;
+    background: linear-gradient(to right, #ffd700, #ffec8b);
 }
 
 .card.rank-silver {
-    background-color: #c0c0c0;
+    background: linear-gradient(to right, #c0c0c0, #d9d9d9);
 }
 
 .card.rank-bronze {
-    background-color: #cd7f32;
+    background: linear-gradient(to right, #cd7f32, #e6b89c);
 }
 
 .rank-number {

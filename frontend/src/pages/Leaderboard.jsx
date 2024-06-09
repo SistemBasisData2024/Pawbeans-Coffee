@@ -56,6 +56,35 @@ const Leaderboard = () => {
         }
     };
 
+    const handleAddRating = async (coffeeId, rating) => {
+        try {
+            const response = await fetch('http://localhost:5000/api/ratings', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    userId: user.user_id,
+                    personalizedCoffeeId: coffeeId,
+                    rating: rating
+                })
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error('Failed to add rating:', errorText);
+                return;
+            }
+
+            const updatedCoffee = await response.json();
+            setPersonalizedCoffees(prevCoffees => prevCoffees.map(coffee =>
+                coffee.personalized_coffee_id === coffeeId ? updatedCoffee : coffee
+            ));
+        } catch (error) {
+            console.error('Error adding rating:', error);
+        }
+    };
+
     return (
         <div className="container">
             <Navbar />
@@ -67,8 +96,8 @@ const Leaderboard = () => {
             <div className="content">
                 <div className="main-content">
                     <div className="welcome-section">
-                        <h1>Welcome to Leaderboard, {user?.is_anonymous ? 'Anonymous' : user?.username}!</h1>
-                        <p>Here you can see the leaderboard...</p>
+                        <h1>WELCOME TO LEADERBOARD!</h1>
+                        <p>Here, you can see the Pawbeans Masters...</p>
                     </div>
                     <div className="leaderboard-cards-container">
                         {personalizedCoffees.map((coffee, index) => (
@@ -79,6 +108,8 @@ const Leaderboard = () => {
                                 rating={coffee.average_rating || coffee.rating}
                                 username={coffee.username}
                                 isAnonymous={coffee.is_anonymous}
+                                coffeeId={coffee.personalized_coffee_id}
+                                onAddRating={handleAddRating}
                             />
                         ))}
                     </div>

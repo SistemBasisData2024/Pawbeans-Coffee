@@ -18,7 +18,7 @@
 }
 
 .cart-card-details {
-    margin-left: 60px;
+    margin-left: 50px;
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
@@ -28,7 +28,7 @@
 .cart-card-details p {
     margin: 0 15px;
     color: #0C1D26;
-    font-size: max(1vw, 10px);
+    font-size: max(2vw, 10px);
 }
 
 .cart-card-details button {
